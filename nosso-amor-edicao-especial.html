@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💙💜 Nosso Amor — Edição Especial 1 Ano ❤️</title>
+  <meta name="description" content="Edição Especial de 1 Ano de Namoro — Boneco de Neve e Minha Garotinha" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────── */
+    :root {
+      --blue:     #4a9eff;
+      --blue-d:   #2563eb;
+      --blue-soft:#dbeafe;
+      --purple:   #a855f7;
+      --purple-d: #7c3aed;
+      --purple-soft:#ede9fe;
+      --grad: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      --grad-soft: linear-gradient(135deg, rgba(74,158,255,.12) 0%, rgba(168,85,247,.12) 100%);
+      --cream:    #fdfbf9;
+      --ink:      #1a1025;
+      --ink-mid:  #4a3f5c;
+      --ink-soft: #8b7da0;
+      --card-bg:  rgba(255,255,255,0.75);
+      --glass:    rgba(255,255,255,0.55);
+      --radius:   18px;
+      --radius-sm:10px;
+      --shadow:   0 8px 32px rgba(100,50,180,.10);
+      --shadow-lg:0 20px 60px rgba(100,50,180,.18);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Jost', sans-serif;
+      --font-script:  'Great Vibes', cursive;
+    }
+
+    /* ─── RESET & BASE ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    a { text-decoration: none; color: inherit; }
+    input { font-family: inherit; }
+    ::selection { background: rgba(168,85,247,.25); }
+
+    /* ─── WELCOME MODAL ─────────────────────────────── */
+    #welcomeModal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      background: rgba(20,8,40,.85);
+      backdrop-filter: blur(12px);
+      animation: fadeIn .5s ease;
+    }
+    #welcomeModal.closing { animation: fadeOut .6s ease forwards; }
+    .wm-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(168,85,247,.25);
+      border-radius: 24px;
+      padding: 48px 40px 40px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: slideUp .7s cubic-bezier(.22,.68,0,1.2);
+    }
+    .wm-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--grad);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .wm-title {
+      font-family: var(--font-script);
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .wm-subtitle {
+      font-size: .85rem;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .wm-body {
+      font-size: .97rem;
+      line-height: 1.85;
+      color: var(--ink-mid);
+    }
+    .wm-body p { margin-bottom: 16px; }
+    .wm-body p:last-child { margin-bottom: 0; }
+    .wm-sig {
+      margin-top: 28px;
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wm-close {
+      margin-top: 32px;
+      width: 100%;
+      padding: 16px;
+      background: var(--grad);
+      color: #fff;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: opacity .2s, transform .2s;
+    }
+    .wm-close:hover { opacity: .9; transform: translateY(-2px); }
+    .wm-hearts {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      text-align: center;
+      letter-spacing: 4px;
+    }
+
+    /* ─── NAV ──────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 48px);
+      height: 64px;
+      background: rgba(253,251,249,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(168,85,247,.1);
+      transition: background .4s, border .4s;
+    }
+    .nav.hero-mode {
+      background: transparent;
+      border-bottom-color: transparent;
+    }
+    .nav-logo {
+      font-family: var(--font-script);
+      font-size: 1.55rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-link {
+      font-size: .82rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+      padding: 8px 14px;
+      border-radius: 50px;
+      color: var(--ink-mid);
+      transition: all .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--grad-soft);
+      color: var(--purple-d);
+    }
+    .nav-link-surprise {
+      background: var(--grad);
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .nav-link-surprise:hover { opacity: .9; }
+    .nav.hero-mode .nav-link { color: rgba(255,255,255,.8); }
+    .nav.hero-mode .nav-link:hover, .nav.hero-mode .nav-link.active {
+      background: rgba(255,255,255,.15);
+      color: #fff;
+    }
+    .nav-badge {
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: #fff;
+      color: var(--purple-d);
+      padding: 2px 7px;
+      border-radius: 50px;
+      margin-left: 6px;
+    }
+    .nav-menu-btn {
+      display: none;
+      flex-direction: column; gap: 5px;
+      padding: 10px;
+    }
+    .nav-menu-btn span {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink-mid);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .nav.hero-mode .nav-menu-btn span { background: #fff; }
+
+    /* ─── MOBILE MENU ───────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+      background: rgba(253,251,249,.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(168,85,247,.12);
+      padding: 16px 0;
+      flex-direction: column;
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s;
+    }
+    .mobile-menu.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-link {
+      padding: 13px 24px;
+      font-size: .95rem;
+      color: var(--ink-mid);
+      transition: background .15s;
+    }
+    .mobile-link:hover { background: var(--grad-soft); }
+
+    /* ─── PAGES ─────────────────────────────────────── */
+    .pages-container { padding-top: 64px; min-height: 100vh; }
+    .page { display: none; }
+    .page.active { display: block; animation: pageFadeIn .4s ease; }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video-bg {
+      position: absolute; inset: 0;
+    }
+    .hero-video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .55;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        rgba(20,8,40,.65) 0%,
+        rgba(40,10,60,.5) 50%,
+        rgba(20,8,40,.75) 100%
+      );
+    }
+    .hero-bg-static {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0f0822 0%, #1e0d3a 40%, #0d1b3e 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 40px 24px;
+      color: #fff;
+    }
+    .hero-edition-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.9);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow {
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,.4);
+    }
+    .hero-amp {
+      font-style: normal;
+      font-weight: 300;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-family: var(--font-script);
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      color: rgba(255,255,255,.75);
+      margin-bottom: 36px;
+    }
+
+    /* Counter */
+    .hero-counter {
+      display: flex; align-items: center; justify-content: center; gap: 4px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .counter-item {
+      display: flex; flex-direction: column; align-items: center;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px;
+      padding: 12px 16px;
+      min-width: 70px;
+    }
+    .counter-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 600;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .counter-label {
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-top: 4px;
+    }
+    .counter-sep {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,.35);
+      margin-top: -16px;
+    }
+
+    /* Anniversary highlight */
+    .hero-anniversary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--grad);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(168,85,247,.4);
+    }
+    .hero-phrase {
+      font-style: italic;
+      color: rgba(255,255,255,.7);
+      font-size: 1rem;
+      min-height: 1.5em;
+      margin-bottom: 16px;
+    }
+    .hero-hearts { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .heart-particle {
+      position: absolute;
+      bottom: -20px;
+      animation: floatHeart linear forwards;
+      pointer-events: none;
+    }
+
+    .hero-scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.45);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ─── HOME NAV GRID ─────────────────────────────── */
+    .home-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: clamp(32px, 6vw, 64px) clamp(16px, 5vw, 64px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .home-nav-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168,85,247,.12);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      box-shadow: var(--shadow);
+    }
+    .home-nav-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(168,85,247,.3);
+    }
+    .home-nav-card--surprise {
+      background: linear-gradient(135deg, rgba(74,158,255,.08), rgba(168,85,247,.12));
+      border-color: rgba(168,85,247,.25);
+    }
+    .hnc-icon { font-size: 2rem; margin-bottom: 10px; }
+    .home-nav-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .home-nav-card p { font-size: .8rem; color: var(--ink-soft); }
+
+    /* ─── PAGE HEADER ───────────────────────────────── */
+    .page-header {
+      text-align: center;
+      padding: clamp(48px, 8vw, 80px) 24px 40px;
+    }
+    .page-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 300;
+      font-style: italic;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .page-subtitle { font-size: .9rem; color: var(--ink-soft); font-style: italic; }
+
+    /* ─── GALLERY ───────────────────────────────────── */
+    .gallery-section { padding: 0 clamp(16px,5vw,64px) 60px; max-width: 1200px; margin: 0 auto; }
+    .gallery-filters {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: .8rem;
+      border: 1px solid rgba(168,85,247,.25);
+      color: var(--ink-mid);
+      transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--grad);
+      color: #fff;
+      border-color: transparent;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .photo-card {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+      aspect-ratio: 1;
+    }
+    .photo-card:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+    .photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(20,8,40,.7));
+      color: #fff;
+      font-size: .78rem;
+      padding: 20px 12px 10px;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .photo-card:hover .photo-caption { opacity: 1; }
+    .gallery-placeholder {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--ink-soft);
+      font-size: .9rem;
+      background: var(--grad-soft);
+      border-radius: var(--radius);
+      border: 1px dashed rgba(168,85,247,.3);
+      line-height: 1.8;
+    }
+    .gallery-placeholder code {
+      background: rgba(168,85,247,.1);
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-size: .82rem;
+      color: var(--purple-d);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(10,4,24,.92);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px;
+      padding: 24px;
+      animation: fadeIn .2s ease;
+    }
+    .lightbox.hidden { display: none; }
+    .lb-close {
+      position: absolute; top: 20px; right: 20px;
+      color: rgba(255,255,255,.6);
+      font-size: 1.5rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.2); color: #fff; }
+    .lb-prev, .lb-next {
+      color: rgba(255,255,255,.6);
+      font-size: 2rem;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,.2); color: #fff; }
+    .lb-content { flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 800px; }
+    .lb-img { max-height: 75vh; max-width: 100%; border-radius: 12px; object-fit: contain; }
+    .lb-caption { color: rgba(255,255,255,.6); font-size: .85rem; margin-top: 12px; text-align: center; }
+
+    /* ─── MUSIC PLAYER ──────────────────────────────── */
+    .player-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+      padding: 0 clamp(16px,5vw,64px) 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .now-playing {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(168,85,247,.15);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 84px;
+      height: fit-content;
+    }
+    .np-art {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--grad-soft);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .np-art img { width: 100%; height: 100%; object-fit: cover; }
+    .np-art-placeholder { font-size: 3rem; opacity: .4; }
+    .np-song {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .np-artist { font-size: .85rem; color: var(--ink-soft); margin-bottom: 20px; }
+    .np-progress { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .np-time { font-size: .73rem; color: var(--ink-soft); min-width: 30px; }
+    .np-bar-wrap { flex: 1; position: relative; height: 20px; display: flex; align-items: center; }
+    .np-bar-bg {
+      height: 4px; width: 100%;
+      background: rgba(168,85,247,.15);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .np-bar-fill {
+      height: 100%; width: 0%;
+      background: var(--grad);
+      border-radius: 4px;
+      transition: width .1s;
+    }
+    .np-range {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0; cursor: pointer;
+    }
+    .np-controls {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    .np-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--grad-soft);
+      color: var(--purple-d);
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .np-btn:hover { background: var(--grad); color: #fff; transform: scale(1.08); }
+    .np-btn-play {
+      width: 54px; height: 54px;
+      font-size: 1.3rem;
+      background: var(--grad);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(168,85,247,.35);
+    }
+    .np-btn-play:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(168,85,247,.5); }
+
+    .playlist-panel {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168,85,247,.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .playlist-search-input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid rgba(168,85,247,.2);
+      border-radius: 50px;
+      background: rgba(168,85,247,.05);
+      color: var(--ink);
+      font-size: .85rem;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color .2s;
+    }
+    .playlist-search-input:focus { border-color: var(--purple); }
+    .playlist-list { list-style: none; max-height: 450px; overflow-y: auto; }
+    .pl-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .pl-item:hover { background: var(--grad-soft); }
+    .pl-item.active {
+      background: linear-gradient(135deg, rgba(74,158,255,.12), rgba(168,85,247,.15));
+    }
+    .pl-num { font-size: .75rem; color: var(--ink-soft); min-width: 18px; text-align: right; }
+    .pl-playing-icon { color: var(--purple); font-size: .8rem; display: none; }
+    .pl-item.active .pl-num { display: none; }
+    .pl-item.active .pl-playing-icon { display: block; }
+    .pl-info { flex: 1; overflow: hidden; }
+    .pl-name { font-size: .88rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pl-artist { font-size: .75rem; color: var(--ink-soft); }
+
+    /* ─── POEMS ─────────────────────────────────────── */
+    .poems-section { padding: 0 clamp(16px,5vw,64px) 60px; max-width: 1200px; margin: 0 auto; }
+    .poems-filter-bar {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .poem-filter {
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: .82rem;
+      border: 1px solid rgba(168,85,247,.25);
+      color: var(--ink-mid);
+      transition: all .2s;
+    }
+    .poem-filter.active, .poem-filter:hover {
+      background: var(--grad);
+      color: #fff;
+      border-color: transparent;
+    }
+    .poems-search-bar { display: flex; justify-content: center; margin-bottom: 32px; }
+    .poems-search {
+      width: 100%; max-width: 400px;
+      padding: 10px 20px;
+      border: 1px solid rgba(168,85,247,.2);
+      border-radius: 50px;
+      background: rgba(168,85,247,.05);
+      color: var(--ink);
+      font-size: .85rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .poems-search:focus { border-color: var(--purple); }
+    .poems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .poem-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168,85,247,.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: var(--shadow);
+    }
+    .poem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pc-author-tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .pc-author-tag.boneco { background: rgba(74,158,255,.12); color: var(--blue-d); }
+    .pc-author-tag.garotinha { background: rgba(168,85,247,.12); color: var(--purple-d); }
+    .pc-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
+    .pc-date { font-size: .73rem; color: var(--ink-soft); margin-bottom: 10px; }
+    .pc-preview { font-size: .85rem; color: var(--ink-mid); line-height: 1.6; margin-bottom: 12px; }
+    .pc-read-more { font-size: .8rem; color: var(--purple); font-weight: 500; }
+
+    /* Poem Modal */
+    .poem-modal {
+      position: fixed; inset: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      animation: fadeIn .2s ease;
+    }
+    .poem-modal.hidden { display: none; }
+    .pm-overlay {
+      position: absolute; inset: 0;
+      background: rgba(10,4,24,.85);
+      backdrop-filter: blur(10px);
+    }
+    .pm-card {
+      position: relative;
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 40px 36px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      animation: slideUp .35s cubic-bezier(.22,.68,0,1.2);
+    }
+    .pm-close {
+      position: absolute; top: 16px; right: 16px;
+      color: var(--ink-soft);
+      font-size: 1.2rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.06);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pm-author-tag { margin-bottom: 16px; }
+    .pm-author-tag.boneco { display: inline-block; background: rgba(74,158,255,.12); color: var(--blue-d); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; }
+    .pm-author-tag.garotinha { display: inline-block; background: rgba(168,85,247,.12); color: var(--purple-d); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; }
+    .pm-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; font-style: italic; margin-bottom: 6px; line-height: 1.3; }
+    .pm-date { font-size: .78rem; color: var(--ink-soft); margin-bottom: 20px; }
+    .pm-body { font-size: .95rem; line-height: 1.9; color: var(--ink-mid); white-space: pre-line; }
+
+    /* ─── TIMELINE ──────────────────────────────────── */
+    .timeline {
+      padding: 20px clamp(16px,5vw,64px) 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--purple));
+      transform: translateX(-50%);
+      opacity: .3;
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 32px;
+      animation: fadeInUp .5s ease both;
+    }
+    .tl-content {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168,85,247,.12);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+    }
+    .tl-item:nth-child(odd) .tl-content { grid-column: 1; margin-right: 20px; text-align: right; }
+    .tl-item:nth-child(even) .tl-content { grid-column: 3; margin-left: 20px; }
+    .tl-item:nth-child(odd) .tl-dot-wrap { grid-column: 2; }
+    .tl-item:nth-child(even) .tl-dot-wrap { grid-column: 2; }
+    .tl-item:nth-child(odd) .tl-empty { grid-column: 3; }
+    .tl-item:nth-child(even) .tl-empty { grid-column: 1; grid-row: 1; }
+    .tl-dot-wrap { display: flex; justify-content: center; }
+    .tl-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--grad);
+      box-shadow: 0 0 0 4px rgba(168,85,247,.2);
+    }
+    .tl-dot.special {
+      width: 20px; height: 20px;
+      box-shadow: 0 0 0 6px rgba(168,85,247,.25), 0 0 20px rgba(168,85,247,.4);
+    }
+    .tl-date { font-size: .73rem; color: var(--ink-soft); margin-bottom: 6px; }
+    .tl-emoji { font-size: 1.4rem; margin-bottom: 6px; display: block; }
+    .tl-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+    .tl-desc { font-size: .83rem; color: var(--ink-mid); line-height: 1.6; font-style: italic; }
+
+    /* ─── PLANS ─────────────────────────────────────── */
+    .plans-stats {
+      display: flex; justify-content: center; gap: 40px;
+      padding: 0 24px 40px;
+      flex-wrap: wrap;
+    }
+    .plan-stat { text-align: center; }
+    .ps-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 600;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ps-label { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 clamp(16px,5vw,64px) 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .plan-category {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168,85,247,.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .plan-cat-header {
+      padding: 16px 20px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--grad-soft);
+      border-bottom: 1px solid rgba(168,85,247,.1);
+    }
+    .plan-items { list-style: none; padding: 8px 0; }
+    .plan-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .plan-item:hover { background: var(--grad-soft); }
+    .plan-item.done .plan-text { text-decoration: line-through; color: var(--ink-soft); }
+    .plan-check {
+      width: 18px; height: 18px;
+      border-radius: 5px;
+      border: 2px solid rgba(168,85,247,.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem;
+      color: var(--purple);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-item.done .plan-check {
+      background: var(--grad);
+      border-color: transparent;
+      color: #fff;
+    }
+    .plan-text { font-size: .87rem; line-height: 1.5; }
+
+    /* ─── SURPRESA ──────────────────────────────────── */
+    .surprise-container {
+      min-height: calc(100vh - 64px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f0822, #1a0d35, #0d1b3e);
+    }
+    .surprise-petals {
+      position: absolute; inset: 0;
+      pointer-events: none;
+    }
+    .petal {
+      position: absolute;
+      top: -20px;
+      animation: fallPetal linear forwards;
+      pointer-events: none;
+    }
+    .surprise-question {
+      text-align: center;
+      color: #fff;
+      position: relative; z-index: 2;
+      max-width: 520px;
+    }
+    .surprise-eyebrow {
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 20px;
+    }
+    .surprise-q-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 40px;
+    }
+    .surprise-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .surprise-btn {
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all .25s;
+    }
+    .surprise-btn-yes {
+      background: var(--grad);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(168,85,247,.4);
+    }
+    .surprise-btn-yes:hover { transform: scale(1.07); box-shadow: 0 6px 30px rgba(168,85,247,.6); }
+    .surprise-btn-no {
+      border: 1px solid rgba(255,255,255,.25);
+      color: rgba(255,255,255,.7);
+    }
+    .surprise-btn-no:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+    .surprise-answer {
+      text-align: center;
+      color: #fff;
+      position: relative; z-index: 2;
+      max-width: 600px;
+      animation: slideUp .5s cubic-bezier(.22,.68,0,1.2);
+    }
+    .surprise-answer.hidden { display: none; }
+    .surprise-question.hidden { display: none; }
+    .sa-hearts { font-size: 1.8rem; letter-spacing: 6px; margin-bottom: 20px; }
+    .sa-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 32px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sa-letter {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 36px 32px;
+      text-align: left;
+      line-height: 1.85;
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .sa-letter p { margin-bottom: 16px; }
+    .sa-salutation {
+      font-family: var(--font-script);
+      font-size: 1.4rem;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 20px !important;
+    }
+    .sa-signature {
+      font-family: var(--font-script);
+      font-size: 1.35rem;
+      color: rgba(255,255,255,.85);
+      margin-top: 24px;
+    }
+
+    /* ─── BOTTOM NAV ────────────────────────────────── */
+    .bottom-nav {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(253,251,249,.95);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(168,85,247,.12);
+      justify-content: space-around;
+      padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+      z-index: 100;
+    }
+    .bn-item {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--ink-soft);
+      font-size: .6rem;
+      letter-spacing: .05em;
+      transition: all .2s;
+    }
+    .bn-item:first-child { font-size: .95rem; }
+    .bn-item span { font-size: .58rem; }
+    .bn-item.active, .bn-item:hover { color: var(--purple-d); }
+
+    /* ─── ANIMATIONS ────────────────────────────────── */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes pageFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes floatHeart {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .4; } 50% { opacity: .9; }
+    }
+    @keyframes fallPetal {
+      0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .player-layout { grid-template-columns: 1fr; }
+      .now-playing { position: static; }
+      .timeline::before { left: 20px; }
+      .tl-item { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .tl-item:nth-child(odd) .tl-content,
+      .tl-item:nth-child(even) .tl-content {
+        grid-column: 1; margin: 0 0 0 48px; text-align: left;
+      }
+      .tl-item:nth-child(odd) .tl-dot-wrap,
+      .tl-item:nth-child(even) .tl-dot-wrap {
+        grid-column: 1; grid-row: 1;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0;
+      }
+      .tl-item { position: relative; }
+      .tl-empty { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-menu-btn { display: flex; }
+      .bottom-nav { display: flex; }
+      .pages-container { padding-bottom: 70px; }
+      .hero-counter { gap: 2px; }
+      .counter-item { min-width: 60px; padding: 10px 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .home-nav-grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 24px 16px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .poems-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* ─── SCROLLBAR ─────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(168,85,247,.3); border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ WELCOME MODAL ═══════════════════════════════ -->
+  <div id="welcomeModal">
+    <div class="wm-card">
+      <div class="wm-hearts">💙 💜 💙 💜 💙</div>
+      <div class="wm-badge">✨ Edição Especial · 08 de Junho de 2026</div>
+      <h2 class="wm-title">Bem-vinda ao nosso 1 Ano de Namoro ❤️</h2>
+      <p class="wm-subtitle">Uma data que nosso coração nunca vai esquecer</p>
+      <div class="wm-body">
+        <p>Minha garotinha do coração roxo,</p>
+        <p>Hoje faz exatamente um ano que eu te olhei nos olhos e disse: "Você quer ser minha namorada?" Lembro de tudo — o nervosismo, o coração acelerado, e aquele sorriso seu que mudou tudo. Você disse sim, e naquele instante, a minha vida ganhou uma cor que eu não sabia que existia.</p>
+        <p>Este último ano foi uma das jornadas mais lindas que já vivi. Foram 365 dias de risadas que aqueciam a alma, de brigas que nos ensinaram a nos amar melhor, de orações juntos que nos aproximaram de Deus, de viagens, de cinema, de mãos dadas, de beijos roubados e de abraços que eu nunca quero largar.</p>
+        <p>Você me viu crescer. E eu te vi florescer. Comemoramos cada mesversário como se fosse o primeiro, porque cada mês ao seu lado parece novo e incrível. Do show do Luan Santana ao Cristo Redentor, de Aparecida ao Maracanãzinho, cada lugar se tornou especial porque você estava lá.</p>
+        <p>Você é meu lar, minha paz, minha aventura e minha melhor amiga. É a mulher que me faz querer ser o melhor homem possível — não por obrigação, mas por amor. Por você.</p>
+        <p>Este site é mais do que uma página. É um álbum vivo da nossa história. Cada foto, cada música, cada poema aqui dentro carrega um pedaço do que somos.</p>
+        <p>Feliz 1 Ano de Namoro, minha garotinha. Que os próximos venham com ainda mais amor, fé e cumplicidade. Eu te amo muito, muito, muito.</p>
+        <p class="wm-sig">Com todo o meu amor, seu boneco de neve 💙</p>
+      </div>
+      <button class="wm-close" onclick="closeWelcome()">Entrar no nosso mundo 💜</button>
+    </div>
+  </div>
+
+  <!-- ═══ NAV ════════════════════════════════════════ -->
+  <nav class="nav hero-mode" id="nav">
+    <div class="nav-logo">nosso amor</div>
+    <div class="nav-links">
+      <a href="#home"    class="nav-link active" data-page="home">Início</a>
+      <a href="#fotos"   class="nav-link" data-page="fotos">Fotos</a>
+      <a href="#musicas" class="nav-link" data-page="musicas">Músicas</a>
+      <a href="#poemas"  class="nav-link" data-page="poemas">Poemas</a>
+      <a href="#datas"   class="nav-link" data-page="datas">Datas</a>
+      <a href="#planos"  class="nav-link" data-page="planos">Planos</a>
+      <a href="#surpresa" class="nav-link nav-link-surprise" data-page="surpresa">💌 Surpresa</a>
+    </div>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home"    class="mobile-link" data-page="home">🏠 Início</a>
+    <a href="#fotos"   class="mobile-link" data-page="fotos">📸 Fotos</a>
+    <a href="#musicas" class="mobile-link" data-page="musicas">🎵 Músicas</a>
+    <a href="#poemas"  class="mobile-link" data-page="poemas">💌 Poemas</a>
+    <a href="#datas"   class="mobile-link" data-page="datas">📅 Datas Especiais</a>
+    <a href="#planos"  class="mobile-link" data-page="planos">✨ Nossos Planos</a>
+    <a href="#surpresa" class="mobile-link" data-page="surpresa">💖 Surpresa</a>
+  </div>
+
+  <!-- ═══ PAGES ══════════════════════════════════════ -->
+  <main class="pages-container" id="pagesContainer">
+
+    <!-- ── HOME ─────────────────────────────────────── -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-video-bg">
+          <video id="heroVideo" autoplay muted loop playsinline class="hero-video">
+            <source src="assets/videos/vid1.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-bg-static" id="heroBgStatic" style="display:none"></div>
+        <div class="hero-content">
+          <div class="hero-anniversary">🎉 1 Ano de Namoro · 08/06/2025 – 08/06/2026</div>
+          <p class="hero-eyebrow">nossa história começou em 18 de janeiro de 2025</p>
+          <h1 class="hero-title">Boneco de Neve<br /><span class="hero-amp">&amp;</span><br />Minha Garotinha</h1>
+          <p class="hero-subtitle">uma história escrita por Deus</p>
+
+          <!-- Counter: desde 18/01/2025 -->
+          <div class="hero-counter" id="heroCounter">
+            <div class="counter-item">
+              <span class="counter-num" id="cAnos">0</span>
+              <span class="counter-label">anos</span>
+            </div>
+            <div class="counter-sep">:</div>
+            <div class="counter-item">
+              <span class="counter-num" id="cMeses">0</span>
+              <span class="counter-label">meses</span>
+            </div>
+            <div class="counter-sep">:</div>
+            <div class="counter-item">
+              <span class="counter-num" id="cDias">0</span>
+              <span class="counter-label">dias</span>
+            </div>
+            <div class="counter-sep">:</div>
+            <div class="counter-item">
+              <span class="counter-num" id="cHoras">00</span>
+              <span class="counter-label">horas</span>
+            </div>
+            <div class="counter-sep">:</div>
+            <div class="counter-item">
+              <span class="counter-num" id="cMinutos">00</span>
+              <span class="counter-label">min</span>
+            </div>
+            <div class="counter-sep">:</div>
+            <div class="counter-item">
+              <span class="counter-num" id="cSegundos">00</span>
+              <span class="counter-label">seg</span>
+            </div>
+          </div>
+
+          <p class="hero-phrase" id="heroPhrase"></p>
+        </div>
+        <div class="hero-hearts" id="heroHearts"></div>
+        <div class="hero-scroll-hint">
+          <span>role para explorar</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+
+      <!-- Quick nav cards -->
+      <div class="home-nav-grid">
+        <div class="home-nav-card" data-goto="fotos">
+          <div class="hnc-icon">📸</div>
+          <h3>Nossas Fotos</h3>
+          <p>Momentos eternos</p>
+        </div>
+        <div class="home-nav-card" data-goto="musicas">
+          <div class="hnc-icon">🎵</div>
+          <h3>Nossa Playlist</h3>
+          <p>As músicas do casal</p>
+        </div>
+        <div class="home-nav-card" data-goto="poemas">
+          <div class="hnc-icon">💌</div>
+          <h3>Nossos Poemas</h3>
+          <p>Palavras do coração</p>
+        </div>
+        <div class="home-nav-card" data-goto="datas">
+          <div class="hnc-icon">📅</div>
+          <h3>Datas Especiais</h3>
+          <p>Nossa linha do tempo</p>
+        </div>
+        <div class="home-nav-card" data-goto="planos">
+          <div class="hnc-icon">✨</div>
+          <h3>Nossos Planos</h3>
+          <p>Sonhos para realizar</p>
+        </div>
+        <div class="home-nav-card home-nav-card--surprise" data-goto="surpresa">
+          <div class="hnc-icon">💖</div>
+          <h3>Surpresa</h3>
+          <p>Algo especial para você</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOTOS ─────────────────────────────────────── -->
+    <section class="page" id="page-fotos">
+      <div class="page-header">
+        <p class="page-eyebrow">memórias</p>
+        <h2 class="page-title">Nossas Fotos</h2>
+        <p class="page-subtitle">cada clique guarda uma eternidade</p>
+      </div>
+      <div class="gallery-section">
+        <div class="gallery-filters" id="galleryFilters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-placeholder">
+            <p>📸 Adicione suas fotos em <code>assets/images/</code><br/>
+            e configure o array <code>photos</code> no script abaixo.<br/>
+            As categorias criam os filtros automaticamente!</p>
+          </div>
+        </div>
+      </div>
+      <!-- Lightbox -->
+      <div class="lightbox hidden" id="lightbox">
+        <button class="lb-close" id="lbClose">✕</button>
+        <button class="lb-prev" id="lbPrev">‹</button>
+        <div class="lb-content">
+          <img class="lb-img" id="lbImg" src="" alt="" />
+          <div class="lb-caption" id="lbCaption"></div>
+        </div>
+        <button class="lb-next" id="lbNext">›</button>
+      </div>
+    </section>
+
+    <!-- ── MÚSICAS ────────────────────────────────────── -->
+    <section class="page" id="page-musicas">
+      <div class="page-header">
+        <p class="page-eyebrow">trilha sonora</p>
+        <h2 class="page-title">Nossa Playlist</h2>
+        <p class="page-subtitle">as músicas que contam nossa história</p>
+      </div>
+      <div class="player-layout">
+        <div class="now-playing">
+          <div class="np-art" id="npArt"><div class="np-art-placeholder">♪</div></div>
+          <div class="np-song" id="npSong">Selecione uma música</div>
+          <div class="np-artist" id="npArtist">Nossa Playlist</div>
+          <div class="np-progress">
+            <span class="np-time" id="npCurrent">0:00</span>
+            <div class="np-bar-wrap">
+              <div class="np-bar-bg"><div class="np-bar-fill" id="npFill"></div></div>
+              <input type="range" class="np-range" id="npRange" min="0" max="100" value="0" />
+            </div>
+            <span class="np-time" id="npTotal">0:00</span>
+          </div>
+          <div class="np-controls">
+            <button class="np-btn" id="npPrev">⏮</button>
+            <button class="np-btn np-btn-play" id="npPlay">▶</button>
+            <button class="np-btn" id="npNext">⏭</button>
+          </div>
+          <audio id="audioPlayer" hidden></audio>
+        </div>
+        <div class="playlist-panel">
+          <input type="text" class="playlist-search-input" id="playlistSearch" placeholder="Buscar música ou artista..." />
+          <ul class="playlist-list" id="playlistList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── POEMAS ─────────────────────────────────────── -->
+    <section class="page" id="page-poemas">
+      <div class="page-header">
+        <p class="page-eyebrow">palavras do coração</p>
+        <h2 class="page-title">Nossos Poemas</h2>
+        <p class="page-subtitle">um diário de amor em forma de palavras</p>
+      </div>
+      <div class="poems-section">
+        <div class="poems-filter-bar">
+          <button class="poem-filter active" data-author="all">Todos</button>
+          <button class="poem-filter" data-author="boneco">💙 Boneco de Neve</button>
+          <button class="poem-filter" data-author="garotinha">💜 Minha Garotinha</button>
+        </div>
+        <div class="poems-search-bar">
+          <input type="text" class="poems-search" id="poemsSearch" placeholder="Buscar nos poemas..." />
+        </div>
+        <div class="poems-grid" id="poemsGrid"></div>
+      </div>
+      <!-- Poem Modal -->
+      <div class="poem-modal hidden" id="poemModal">
+        <div class="pm-overlay" id="pmOverlay"></div>
+        <div class="pm-card">
+          <button class="pm-close" id="pmClose">✕</button>
+          <div class="pm-author-tag" id="pmAuthorTag"></div>
+          <h3 class="pm-title" id="pmTitle"></h3>
+          <div class="pm-date" id="pmDate"></div>
+          <div class="pm-body" id="pmBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DATAS ──────────────────────────────────────── -->
+    <section class="page" id="page-datas">
+      <div class="page-header">
+        <p class="page-eyebrow">nossa história</p>
+        <h2 class="page-title">Datas Especiais</h2>
+        <p class="page-subtitle">cada momento que nos fez quem somos</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- ── PLANOS ─────────────────────────────────────── -->
+    <section class="page" id="page-planos">
+      <div class="page-header">
+        <p class="page-eyebrow">nosso futuro</p>
+        <h2 class="page-title">Nossos Planos</h2>
+        <p class="page-subtitle">sonhos que queremos realizar juntos</p>
+      </div>
+      <div class="plans-stats" id="plansStats">
+        <div class="plan-stat"><span class="ps-num" id="psTotal">0</span><span class="ps-label">sonhos</span></div>
+        <div class="plan-stat"><span class="ps-num" id="psDone">0</span><span class="ps-label">realizados</span></div>
+        <div class="plan-stat"><span class="ps-num" id="psPct">0%</span><span class="ps-label">completo</span></div>
+      </div>
+      <div class="plans-grid" id="plansGrid"></div>
+    </section>
+
+    <!-- ── SURPRESA ───────────────────────────────────── -->
+    <section class="page" id="page-surpresa">
+      <div class="surprise-container" id="surpriseContainer">
+        <div class="surprise-petals" id="surprisePetals"></div>
+        <div class="surprise-question" id="surpriseQuestion">
+          <p class="surprise-eyebrow">uma pergunta especial</p>
+          <h2 class="surprise-q-text">💙💜 Você quer namorar comigo? 💙💜</h2>
+          <div class="surprise-btns">
+            <button class="surprise-btn surprise-btn-yes" id="btnSim">Sim 💜</button>
+            <button class="surprise-btn surprise-btn-no" id="btnNao">Não 😅</button>
+          </div>
+        </div>
+        <div class="surprise-answer hidden" id="surpriseAnswer">
+          <div class="sa-hearts">💙💜💙💜💙</div>
+          <h2 class="sa-title">Eu te amo, Minha Garotinha! ❤️</h2>
+          <div class="sa-letter">
+            <p class="sa-salutation">💌 Para a minha Garotinha do Coração Roxo 💜</p>
+            <p>Você disse sim... e nesse instante, o mundo inteiro pareceu parar. Parar pra testemunhar o início de algo que Deus já estava escrevendo há muito tempo: a nossa história de amor.</p>
+            <p>Garotinha... desde aquele dia 18 de janeiro, na adoração, quando nos vimos pela primeira vez, eu já sentia que havia algo diferente ali. E com o tempo, esse algo virou tudo. Virou você. Virou nós.</p>
+            <p>Você chegou como um anjo, e eu nem percebi que meu coração, que vivia congelado, começou a derreter devagar com o seu calor — com sua fé, com seu carinho, com seu jeito meigo de cuidar. Você me conquistou sem pressa, sem pressão... só sendo você.</p>
+            <p>Hoje, você é minha neném e minha mulher. É quem eu cuido, quem eu mimo, quem eu amo. É quem me provoca com esses olhões brilhantes e me chama de boboca, mas também quem me dá os beijos mais doces e os sorrisos mais sinceros que eu já vi na vida.</p>
+            <p>Cada ligação antes de dormir, cada oração juntos, cada beijo tímido, cada provocação, cada história que eu conto pra você adormecer… tudo isso constrói um pedacinho do amor imenso que tenho por você.</p>
+            <p>Você é luz, Maria. Luz de Deus. A menina que me leva mais perto Dele, mesmo quando não percebe. A mulher que me inspira a ser um homem melhor, mais respeitável, mais forte… não só por mim, mas por nós.</p>
+            <p>Você é minha garotinha do coração roxo, e eu sou seu boneco de neve do coração azul. Somos poesia, somos fé, somos promessa.</p>
+            <p class="sa-signature">💙💜 Com todo meu amor,<br /><em>seu boneco de neve.</em></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom nav (mobile) -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a class="bn-item active" data-page="home" href="#home">🏠<span>Início</span></a>
+    <a class="bn-item" data-page="fotos" href="#fotos">📸<span>Fotos</span></a>
+    <a class="bn-item" data-page="musicas" href="#musicas">🎵<span>Músicas</span></a>
+    <a class="bn-item" data-page="poemas" href="#poemas">💌<span>Poemas</span></a>
+    <a class="bn-item" data-page="surpresa" href="#surpresa">💖<span>Surpresa</span></a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       DATA — Edite aqui todo o conteúdo do site
+       ═══════════════════════════════════════════════ -->
+  <script>
+  'use strict';
+
+  /* ── DATA ─────────────────────────────────────────── */
+  const D = {
+
+    /* Início da história (para o contador) */
+    startDate: new Date('2025-01-18T21:00:00'),
+
+    /* Data oficial do namoro */
+    namoroDate: new Date('2025-06-08T00:00:00'),
+
+    /* Frases românticas rotativas */
+    phrases: [
+      "somos poesia, somos fé, somos promessa",
+      "você derrete o ártico do meu coração azul",
+      "dois corações de cores diferentes, uma só história",
+      "você chegou como um anjo e ficou como um lar",
+      "com Deus no centro, o que mais eu quero",
+      "te amo hoje e quero te amar por muitos anos",
+      "você é minha garotinha do coração roxo",
+      "pra onde eu corro sem pensar — pro abraço que quero morar",
+      "feliz 1 ano, meu amor 💙💜",
+    ],
+
+    /* ── Datas Especiais ─────────────────────────── */
+    dates: [
+      { date:'2025-01-18', emoji:'✨', title:'Primeira vez que nos vimos', desc:'Na Holy Night, na São Sebastião. Uma conversa despretensiosa que mudou tudo.', special:true },
+      { date:'2025-01-18', emoji:'💬', title:'Trocamos Instagram', desc:'Você me conquistou com aquele texto que mandou depois. Fiquei muito feliz.', special:false },
+      { date:'2025-01-18', emoji:'💙💜', title:'Início da nossa história', desc:'21h00 — o instante exato em que tudo começou a ser escrito.', special:true },
+      { date:'2025-02-18', emoji:'🎉', title:'1 mês juntos', desc:'O primeiro mês de muitos que ainda estão por vir.', special:false },
+      { date:'2025-02-19', emoji:'🎂', title:'Aniversário de você', desc:'Há 19 anos nascia a garotinha que um dia mudaria minha vida.', special:true },
+      { date:'2025-03-08', emoji:'🌸', title:'Dia Internacional da Mulher', desc:'Celebrando a mulher incrível que você é.', special:false },
+      { date:'2025-03-15', emoji:'🎬', title:'Primeiro encontro no cinema', desc:'Fomos ao cinema — aconteceu o que tinha que acontecer.', special:true },
+      { date:'2025-04-18', emoji:'🌷', title:'3 meses juntos', desc:'Três meses construindo algo lindo.', special:false },
+      { date:'2025-04-20', emoji:'🐰', title:'Presentes de Páscoa', desc:'Nossos primeiros presentes de Páscoa um para o outro.', special:false },
+      { date:'2025-05-18', emoji:'💜', title:'4 meses — Feliz aniversário de nós', desc:'"Estar com você é uma das melhores coisas que já me aconteceu."', special:true },
+      { date:'2025-06-08', emoji:'💍', title:'Pedido de namoro oficial', desc:'Não foi o pedido mais romântico, mas foi o mais sincero que pude fazer.', special:true },
+      { date:'2025-06-18', emoji:'💫', title:'5 meses juntos', desc:'"5 meses de muitos que quero passar ao seu lado."', special:false },
+      { date:'2025-07-18', emoji:'🎂', title:'Meu aniversário', desc:'Jogamos totó e nos divertimos muito. Um dia inesquecível.', special:true },
+      { date:'2025-09-18', emoji:'🎊', title:'8 meses — Feliz aniversário!', desc:'"Quero que nosso oito vire dezoito, oitenta, oitocentos..."', special:true },
+      { date:'2025-10-18', emoji:'🌙', title:'Luan Santana', desc:'Show inesquecível juntos.', special:false },
+      { date:'2025-11-18', emoji:'🎭', title:'10 meses juntos', desc:'"Obrigada por sempre estar do meu lado, por me divertir, cuidar de mim."', special:true },
+      { date:'2025-12-18', emoji:'🏔️', title:'Cristo Redentor', desc:'Passeio que estava marcado há muito tempo. Finalmente aconteceu!', special:true },
+      { date:'2026-01-18', emoji:'🥂', title:'1 Ano do Encontro', desc:'Um ano inteiro desde aquela Holy Night. Obrigado, Deus.', special:true },
+      { date:'2026-01-18', emoji:'🦁', title:'Quinta da Boa Vista', desc:'Passeio lindo juntos.', special:false },
+      { date:'2026-02-18', emoji:'⛪', title:'Aparecida', desc:'Nossa viagem especial para Nossa Senhora Aparecida.', special:true },
+      { date:'2026-03-18', emoji:'🏟️', title:'Maracanãzinho', desc:'Mais um passeio incrível juntos.', special:false },
+      { date:'2026-04-18', emoji:'⛺', title:'Retiro EJMA', desc:'Um retiro que nos fortaleceu na fé e no amor.', special:true },
+      { date:'2026-06-08', emoji:'❤️', title:'1 Ano de Namoro — Edição Especial', desc:'Hoje comemoramos o maior amor da nossa vida. 💙💜', special:true },
+    ],
+
+    /* ── Músicas ─────────────────────────────────── */
+    music: [
+      { title:'Talking To The Moon',         artist:'Bruno Mars',               file:'Bruno Mars - Talking To The Moon (Official Lyric Video).mp3', cover:'musicas Amor/capa Musicas/Bruno Mars.jpg' },
+      { title:'A Hora é Agora',              artist:'Jorge e Matheus',           file:'Jorge & Mateus - A Hora é Agora - [DVD Ao Vivo em Jurerê] - (Clipe Oficial) (1).mp3', cover:'musicas Amor/capa Musicas/Jorge e Matheus.jpg' },
+      { title:'Tanto Faz',                   artist:'Luan Santana',              file:'Luan Santana - Tanto Faz - (DVD O Nosso Tempo é hoje).mp3', cover:'musicas Amor/capa Musicas/Luan Santana.jpg' },
+      { title:'Velha Infância',              artist:'Tribalistas',               file:'Velha Infância - Tribalistas Ao Vivo.mp3', cover:'musicas Amor/capa Musicas/Tribalista.jpg' },
+      { title:'Amor de Fim de Noite',        artist:'Orochi',                    file:'Orochi ＂AMOR DE FIM DE NOITE＂ 🌹 (Prod. Papatinho).mp3', cover:'musicas Amor/capa Musicas/Orochi.jpg' },
+      { title:'Casa',                        artist:'Colo de Deus',              file:'CASA — COLO DE DEUS.mp3', cover:'musicas Amor/capa Musicas/Casa.jpg' },
+      { title:'Aluga-se',                    artist:'Luan Santana',              file:'musicas Amor/Luan Santana - ALUGA-SE.mp3', cover:'musicas Amor/capa Musicas/Aluga-se.jpg' },
+      { title:'Perfect',                     artist:'Ed Sheeran',                file:'musicas Amor/Ed Sheeran - Perfect (Tradução).mp3', cover:'musicas Amor/capa Musicas/Perfect.jpg' },
+      { title:'Meu Abrigo',                  artist:'Melim',                     file:'musicas Amor/Melim - Meu Abrigo (Letra⧸Lyrics).mp3', cover:'musicas Amor/capa Musicas/Melim.jpg' },
+      { title:'Aliança',                     artist:'Tribalistas',               file:'musicas Amor/Aliança - Tribalistas ( lyrics⧸ letra ) @eodudzinska.mp3', cover:'musicas Amor/capa Musicas/Aliança.jpg' },
+      { title:'Umbrella',                    artist:'Rihanna ft. Jay-Z',         file:'musicas Amor/Rihanna - Umbrella ft. Jay-Z (Legendado ｜ Lyrics + Tradução) (1).mp3', cover:'musicas Amor/capa Musicas/Rihanna.jpg' },
+      { title:'Só Você',                     artist:'Dennis DJ & MC G15',        file:'musicas Amor/Só Você (Só Preciso de Você) - Dennis DJ e Mc G15.mp3', cover:'musicas Amor/capa Musicas/Só-você.jpg' },
+      { title:'Just The Way You Are',        artist:'Bruno Mars',                file:'musicas Amor/Bruno Mars - Just The Way You Are (Tradução⧸Legendado).mp3', cover:'musicas Amor/capa Musicas/Just the way you are.jpg' },
+      { title:'Deixa Como Tudo Tá',          artist:'Grupo Menos é Mais',        file:'musicas Amor/Grupo Menos é Mais- Deixa tudo como tá (Letra) (1).mp3', cover:'musicas Amor/capa Musicas/Deixa como tudo tá.jpg' },
+      { title:'I Wanna Be Yours',            artist:'Arctic Monkeys',            file:'musicas Amor/Arctic monkeys - I wanna be yours (tradução⧸legendado).mp3', cover:'musicas Amor/capa Musicas/Artic Monkeys.jpg' },
+      { title:'Te Vivo',                     artist:'Luan Santana',              file:'musicas Amor/Luan Santana - Te Vivo (Clipe Oficial).mp3', cover:'musicas Amor/capa Musicas/Te Vivo.jpg' },
+      { title:'Pequena Flor',               artist:'Gabriel Elias',             file:'musicas Amor/Gabriel Elias  - Pequena Flor ｜ Acústico (Casa de Praia).mp3', cover:'musicas Amor/capa Musicas/Pequena Flor.jpg' },
+      { title:'Vem Cá',                     artist:'Pelé MilFlows',             file:'musicas Amor/Vem Cá - Pelé MilFlows (Prod. Volp & Rafa Valle) (1).mp3', cover:'musicas Amor/capa Musicas/Vem Cá.jpg' },
+      { title:'Never Be Alone',             artist:'Shawn Mendes',              file:'musicas Amor/Shawn Mendes - Never Be Alone (Tradução).mp3', cover:'musicas Amor/capa Musicas/Shawn Mendes.jpg' },
+      { title:'Nós 2',                      artist:'Jade Baraldo',              file:'musicas Amor/Jade Baraldo - nós 2 - Clipe Oficial.mp3', cover:'musicas Amor/capa Musicas/Nós 2.jpg' },
+      { title:'Vagalumes',                  artist:'Pollo ft. Ivo Mozart',      file:'musicas Amor/Pollo - Vagalumes (Lyrics⧸Letras) part. Ivo Mozart.mp3', cover:'musicas Amor/capa Musicas/Pollo.jpg' },
+      { title:'Vejo Enfim a Luz Brilhar',   artist:'Enrolados (OST)',           file:'musicas Amor/Vejo Enfim a Luz Brilhar - Sylvia Salustti e Raphael Rossato - Enrolados (Letra).mp3', cover:'musicas Amor/capa Musicas/Enrolados.jpg' },
+      { title:'Infinity',                   artist:'Jaymes Young',              file:'musicas Amor/jaymes young - infinity [tradução⧸legendado] teotfw.mp3', cover:'musicas Amor/capa Musicas/Infinity.jpg' },
+      { title:'De Love',                    artist:'Pelé MilFlows',             file:'musicas Amor/De love (part. Pelé milflows) - gaab 1kilo.mp3', cover:'musicas Amor/capa Musicas/De Love.jpg' },
+      { title:'Afrodite',                   artist:'Delacruz & IZA',            file:'musicas Amor/afrodite - Delacruz e IZA (Prod. JOK3R).mp3', cover:'musicas Amor/capa Musicas/Afrodite.jpg' },
+      { title:'Sweater Weather',            artist:'The Neighbourhood',         file:'musicas Amor/The Neighbourhood - Sweater Weather (Tradução).mp3', cover:'musicas Amor/capa Musicas/Sweater Wheater.jpg' },
+      { title:'De Janeiro a Janeiro',       artist:'Roberta Campos & Nando Reis', file:'musica_27.mp3', cover:'musicas Amor/capa Musicas/Janeiro.jpg' },
+      { title:'All of Me',                  artist:'John Legend',               file:'musicas Amor/John Legend - All of Me (Tradução).mp3', cover:'musicas Amor/capa Musicas/All of me.jpg' },
+      { title:'202',                        artist:'Kweller & Enzo Cello',      file:'musicas Amor/Kweller & Enzo Cello - 202 (g3me pra eu ouvir).mp3', cover:'musicas Amor/capa Musicas/202.jpg' },
+      { title:'Die With a Smile',           artist:'Lady Gaga & Bruno Mars',    file:'musicas Amor/Lady Gaga & Bruno Mars - Die with a Smile (Tradução) (Legendado) (Clipe Oficial).mp3', cover:'musicas Amor/capa Musicas/Die With a Smile.jpg' },
+      { title:'No Meu Coração Você Vai Sempre Estar', artist:'Tarzan (OST)',   file:'musicas Amor/Tarzan — No Meu Coração Você Vai Sempre Estar ｜ Ed Motta.mp3', cover:'musicas Amor/capa Musicas/Tarzan.jpg' },
+      { title:'Terça de Tarde',             artist:'Pedrosa',                   file:'musicas Amor/Pedrosa - Terça de Tarde.mp3', cover:'musicas Amor/capa Musicas/Pedrosa.jpg' },
+    ],
+
+    /* ── Poemas ──────────────────────────────────── */
+    poems: [
+      {
+        id:'p001', author:'boneco',
+        title:'Uma garotinha que surgiu como um anjo...',
+        date:'Janeiro 2025',
+        body:`Uma garotinha que surgiu como um anjo em minha vida.
+Eu não buscava romance, mas suas palavras doces me conquistaram.
+Seu jeito carinhoso me faz querer protegê-la de todo mal,
+Enquanto sua ousadia e provocação despertam o desejo de tê-la para mim.
+Em tão pouco tempo, você me fez querer ser alguém melhor,
+Com seu apoio, sua gentileza, sua essência.
+Nossa chama não se apaga, nossa conexão vai além de qualquer história vivida.
+E mesmo distantes, sei que, ao olhar para a noite estrelada,
+Nossos olhares se encontrarão no infinito.
+Ó minha garotinha do coração violeta,
+Aos poucos, você derrete o ártico do meu coração azul.`
+      },
+      {
+        id:'p002', author:'boneco',
+        title:'Há 19 anos atrás...',
+        date:'Fevereiro 2025 — Aniversário dela',
+        body:`Há 19 anos atrás era o dia de uma garotinha que como diz Cezar Menotti e Fabiano, "Como um anjo você apareceu na minha vida".
+
+E eu sou grato a Deus por te conhecer pois você me fez amadurecer bastante em pouco tempo, me fez perceber que pode ser até bom ficar sozinho e buscar objetivos com Deus, mas quando tem alguém junto contigo indo em um caminho próximo, cuidando de você e te apoiando, as coisas podem melhorar.
+
+Então obrigado por estar sendo meu apoio — a pessoa que me faz querer ser melhor do que ontem todos os dias. Pois agora eu sinto que não é só para mim que estou me esforçando, mas também para outra pessoa, e por conta disso meus esforços devem ser dobrados.
+
+Então eu peço a Deus pra abençoar sua vida, minha garotinha, e realizar todos os seus sonhos. E que Nossa Senhora Aparecida cubra e te proteja de todos os males do mundo com seu manto sagrado.
+
+E por fim, Maria, eu só quero agradecer a você por cada momento que tivemos neste um pouco mais de um mês: nossas risadas, nossos beijos, nossos momentos de oração, nossas trocas de olhares, nossas conversas, gestos de carinho, provocações...
+
+Amor, saiba de verdade que eu me importo com você, e que eu quero saber cada coisinha sobre você — dos seus gostos e sonhos aos seus medos e traumas. Eu quero ser uma luz que vai te proteger de toda a escuridão.
+
+Muitas felicidades e chuvas de bênçãos para você, minha garotinha! Um grande beijo na boca de mim para você. Feliz aniversário, meu amor. Te vivo! 💙💙💙`
+      },
+      {
+        id:'p003', author:'boneco',
+        title:'Uma Mulher Especial',
+        date:'8 de Março — Dia da Mulher',
+        body:`Uma mulher que me encantou,
+com a doçura das palavras e a leveza do olhar.
+Com o tempo, fui me perdendo em seu mundo,
+me envolvendo em sua história,
+como quem se rende a um lindo sonho.
+
+Ela talvez nem perceba, mas carrega em si uma luz,
+uma centelha divina que ilumina por onde passa.
+Está sempre disposta a cuidar, a acolher,
+a estender a mão àqueles que ama,
+e nisso reside sua beleza mais pura.
+
+Seu estilo é um encanto à parte,
+com vestidos que lhe dão ares de uma dama,
+como aquelas das histórias que cativam corações.
+Amo suas pintas no rosto,
+ainda que ela não goste tanto assim.
+
+Ama os animais e os bebês,
+se derretendo com a inocência deles,
+e se entrega com dedicação a tudo o que deseja.
+Talvez não perceba o quanto sua vida é valiosa,
+mas para muitos, e especialmente para mim,
+ela é um verdadeiro presente de Deus.
+
+Sou grato por tê-la em minha vida,
+e a cada dia, em minhas preces, peço por seu bem.
+Hoje, mais do que nunca, celebro sua existência.
+Para mim, você é e sempre será especial.`
+      },
+      {
+        id:'p004', author:'boneco',
+        title:'Garotinha dos olhos de luz',
+        date:'Março 2025',
+        body:`Garotinha dos olhos de luz,
+Doce menina que aquece meu coração,
+Tua gentileza e tua forma de cuidar
+Têm o poder de me transformar.
+
+Me fazem querer ser forte,
+Melhor, mais inteiro, só pra te amar.
+Teu toque me cura, tua voz é paz,
+Em teus olhos vejo a luz dos anjos brilhar.
+
+Você, pequena e especial,
+É o presente mais belo que Deus pôde me dar.
+Teus cabelos soltos dançam ao vento,
+Tua presença acalma, encanta, desperta sentimento.
+
+Você é santa e sedutora, meiga e intensa,
+Em meus braços me sinto homem, encontro crença.
+Com teus gestos de amor tão constantes,
+Me ensina a amar mais, a cuidar a todo instante.
+
+Minha garotinha gentil e carinhosa,
+Nosso amor floresce, cresce e se fortalece como rosa.
+E o que mais desejo pra nós é simples e sincero:
+Paz, respeito, amor — com Deus no centro, o que mais eu quero.
+
+Sou grato por te ter, por te sentir, por te ver,
+Minha doce garotinha, contigo quero viver. 🤍`
+      },
+      {
+        id:'p005', author:'boneco',
+        title:'Meu amor (Páscoa)',
+        date:'Páscoa 2025',
+        body:`Meu amor, 💜
+
+Assim como essas flores violetas, essa carta é toda sobre você... sobre tudo que eu amo em você, minha pequena. E não tem como não começar pela primeira coisa que me encantou na sua alma: sua fé em Deus e sua compaixão pelas pessoas, meu amor.
+
+Você enxergou um brilho em mim que nem eu mesmo percebia... E não foi só comigo — você tem esse dom de ver a luz nas pessoas e de cativar com seu jeitinho doce, do mesmo jeito que me conquistou.
+
+Cada dia ao seu lado eu percebia: você era diferente de todas as outras. E quanto mais o tempo passa, mais eu ganho certeza. Eu amo sua fé, sua gentileza, sua doçura... E, sério, você é muito fofa. Quando você fica toda boba com animais e nenéns, meu coração quase explode de amor.
+
+Eu amo quando você fica manhosa, pedindo meus abraços, meus beijos... Quando se aninha em mim, como se o mundo inteiro parasse e só existisse a gente. Amo ser seu colo, seu abrigo, seu silêncio e também seu fogo.
+
+Meu amor... nessa Páscoa, peço a Deus que te abençoe e te guarde todos os dias da sua vida. Você é um ser precioso demais pra esse mundo.`
+      },
+      {
+        id:'p006', author:'boneco',
+        title:'Minha Garotinha, Minha Flor',
+        date:'Abril 2025',
+        body:`Minha garotinha, minha flor,
+
+Que hoje sente o corpo pulsar,
+Com os hormônios, a rotina, a dor…
+E eu só queria te embalar.
+
+Te acolho em meus braços quentinhos,
+Meu abraço é ninho, abrigo, lar.
+Mesmo quando morde, cutuca,
+Ou quando o estresse vem apertar.
+
+Sei que os dias têm sido difíceis,
+E que o aparelho às vezes dói…
+Mas meu amor, ah, esse não falha,
+Ele aquece, protege… e constrói.
+
+Você é a minha garotinha do coração roxo,
+Tão meiga, tão doce, tão amorosa…
+Minha menina que ri e implica,
+E que mesmo brava, é sempre formosa.`
+      },
+      {
+        id:'p007', author:'boneco',
+        title:'1 Ano do Nosso Encontro',
+        date:'Janeiro 2026',
+        body:`Feliz 1 ano, meu amor. 💙💜
+
+Sim, é estranho parar pra pensar, mas faz 1 ano inteiro que eu e você nos conhecemos. Tudo começou porque eu fui comentar com você de onde você era, lá na Holy Night, na São Sebastião. Logo após nossa conversa despretensiosa, eu fiquei muito feliz por você ter trocado Instagram comigo.
+
+No início, eu não tinha segundas intenções com você, mas você me conquistou de uma forma tão boa com aquele texto que você me enviou… eu fiquei muito feliz e resolvi investir em você. Até que decidi te chamar pra sair. Fomos ao cinema, aconteceu o que tinha que acontecer no nosso primeiro encontro e, depois disso, começamos a nos ver quase toda semana.
+
+Vieram nosso primeiro beijo na Nossa Sra. da Luz, meu aniversário — onde jogamos totó e nos divertimos muito —, seu aniversário no parque e na hamburgueria, nossos presentes de Páscoa, nossos encontros escondidos na sua casa, muitos beijos na boca, abraços e carinhos… Até o dia em que eu te pedi em namoro.
+
+Desde então, carregamos nossa aliança do Paraguai e vivemos muitos momentos bons, alguns perrengues e tantas histórias: o show do Luan Santana, o passeio no Cristo Redentor, nossa ida à Quinta da Boa Vista, a viagem para Aparecida, a ida ao Maracanãzinho, o retiro do EJMA e muitos outros passeios cheios de diversão.
+
+Eu amo você, meu amor.
+Eu amo sua gentileza.
+Eu amo sua doçura.
+Eu amo o seu cuidado comigo.
+Eu amo o respeito que você tem por mim.
+Eu amo essa relação saudável que nós temos, recheada com o amor de Deus e de Nossa Senhora Aparecida.
+
+Eu agradeço a Deus por ter conhecido você, porque você me fez amadurecer como pessoa, evoluir e entender que o amor ainda existe. Basta acreditar.
+
+Eu te amo, minha garotinha.
+Eu te amo, meu amor.
+Eu te amo, minha vida.
+Eu te amo, minha mulher.
+Eu te amo muito, muito, muito.
+
+Feliz 1 ano!!! 💙💜`
+      },
+      /* ── Garotinha ─────────────────────────── */
+      {
+        id:'p101', author:'garotinha',
+        title:'Feliz 4 meses de nós pequeno! 💜',
+        date:'Maio 2025',
+        body:`Hoje completamos quatro meses de uma história que, mesmo ainda no começo, já é cheia de amor, cumplicidade e momentos inesquecíveis. Deixando lembranças lindas e uma certeza enorme — estar com você é uma das melhores coisas que já me aconteceu.
+
+Seu sorriso me acalma, seu abraço é o meu lugar favorito, e seu jeito de cuidar me faz sentir o quanto sou sortuda por ter você ao meu lado. A cada dia que passa, eu descubro novos motivos pra te admirar, te respeitar e te amar ainda mais.
+
+Obrigada vida por ser quem você é, por estar comigo nas alegrias, nos desafios e em todos os momentos. Que esses quatro meses sejam só o começo de uma história longa, cheia de amor, crescimento e sonhos realizados juntos. Conte sempre comigo meu garotinho!
+
+Eu te amo hoje, e quero te amar por muitos meses e anos que ainda estão por vir. 💜`
+      },
+      {
+        id:'p102', author:'garotinha',
+        title:'Eu quero você 💜',
+        date:'Junho 2025',
+        body:`Eu quero você como eu quero.
+E quero um cantinho pra gente.
+Quero seu colo e seu abraço apertado.
+Quero me sentir segura e protegida nos braços do meu homem, do meu amor.
+
+Quero chegar de um dia cansativo, deitar numa cama grande com você e dizer: agora eu posso descansar.
+Quero fazer vários docinhos pra você mesmo que nem todos deem certo.
+Quero ter você como morada dos meus sonhos.
+Quero dormir contigo todas as noites.
+Quero ser amada por você em voz alta.
+Quero te mimar e te amar com corpo e alma.
+
+Quero saber que sempre vou ter a quem recorrer em situações difíceis.
+Quero sentir medo, mas sabendo que você vai estar ali pra mim.
+Quero deitar e ter esses braços fortes me aconchegando no seu peito.
+Quero sentir seu cheirinho.
+E ser muito amada por você.
+
+Eu te amo pitico 💜`
+      },
+      {
+        id:'p103', author:'garotinha',
+        title:'Meu boneco de neve 🤍',
+        date:'Julho 2025',
+        body:`Meu boneco de neve
+
+Você é meu grande amor,
+É a minha segurança sem dor,
+Pra onde eu corro sem pensar,
+Pro abraço que quero morar.
+
+Eu amo nossa cor,
+Ela me traz doçura,
+Roxo e azul, juntos com fervor,
+Lembram que tudo segura.
+
+Eu tenho grandes planos
+Com você ao meu lado,
+Me faz pensar em ganhos
+E que nada é por acaso.
+
+Pensa em mim enquanto dorme,
+Porque o tempo é sorte,
+De ter um amor enorme,
+Que sempre nos traz suporte.
+
+Eu te amo meu pitico 💜`
+      },
+      {
+        id:'p104', author:'garotinha',
+        title:'Feliz 5 meses da gente minha vida! 👩‍❤‍👨',
+        date:'Junho 2025',
+        body:`5 meses de muitos que quero passar ao seu lado. Eu amo tudo que viemos construindo e quero construir muita coisa ainda contigo.
+
+Você é muito forte, forte em muitos sentidos, na fé, força física e emocional. É uma das coisas que mais tenho orgulho em você.
+
+Tenho orgulho pela pessoa que você é — de caráter, engraçada e doidinha ao mesmo tempo. Você é o homem que Deus enviou na minha vida pra me acalmar de toda e qualquer tempestade.
+
+Vamos crescendo, aprendendo e amadurecendo ao longo do tempo. Estamos no início de uma história linda… você é lindo amor! Por dentro e por fora.
+
+Tenha em mente que estou do seu lado pra te fazer crescer, te apoiar e ser seu porto seguro. Conte comigo pra tudo meu amor!
+
+Eu te amo eu te amo eu te amo! Feliz nosso dia amor! 💜`
+      },
+      {
+        id:'p105', author:'garotinha',
+        title:'Obrigada por tudo e por me escolher! 💜',
+        date:'Agosto 2025',
+        body:`Meu amor, tem um tempinho que não faço um textinho pra você pela correria, mas eu só queria te agradecer. Te agradecer por ser um homem maravilhoso e digno de tanta coisa boa.
+
+Você é muito abençoado e eu tenho certeza que você vai fazer coisas tão grandiosas que eu vou estar te aplaudindo no primeiro banco. Eu me sinto muito grata a Deus por ter te colocado na minha vida no momento certo.
+
+Obrigada por cada beijo, cada abraço, cada momento de risada e choro, cada palavra de apoio e cada gesto que você tem pra cuidar de mim. Sei que faz o melhor por nós dois a cada dia.
+
+Obrigada por cada sacrifício que faz — dinheiro gasto, por dormir menos pra me fazer companhia, chegar mais tarde em casa pra passar mais 10 minutos comigo, ir embora na noite escura sozinho mas sabendo que eu tô em casa segura.
+
+Mas nunca se esqueça que o lugar que eu vou estar mais segura é no seu abraço, no seu colo e do seu lado segurando a sua mão.
+
+Eu te amo com todo o meu coração meu pequeno! Obrigada por tudo e por me escolher! 💜💜💜`
+      },
+      {
+        id:'p106', author:'garotinha',
+        title:'Feliz 8 meses da gente! 💜💜💜',
+        date:'Setembro 2025',
+        body:`Feliz 8 meses da gente meu amor! 💜
+
+Você é o meu para sempre. É a resposta das minhas mais sinceras orações e é meu abraço-casa, minha felicidade. Meu pontinho de paz em forma de gente! Que surgiu pra me fazer infinitamente feliz e amada!
+
+Obrigada por ter aparecido do nada na minha vida e me mostrado segurança emocional e parceria infinita. Você é meu namorado, meu homem e meu melhor amigo!
+
+Nunca esqueço da noite em que nos conhecemos. O mundo se fez diferente a oito meses atrás quando começamos a escrever nossa história, que não é perfeita, mas é nossa — cheia de erros mas com milhares de acertos que superam qualquer dificuldade.
+
+Quero que nosso oito vire dezoito, oitenta, oitocentos, oito mil dias e momentos ao seu lado.
+
+Eu te amo meu pequeno grande amor! 💜💙`
+      },
+      {
+        id:'p107', author:'garotinha',
+        title:'Bom dia minha vida! 💜',
+        date:'Outubro 2025',
+        body:`Eu verdadeiramente espero que você tenha conseguido dormir bem.
+
+Quero que você saiba que eu tô contigo em oração, coração e pensamento hoje. Independente de qualquer coisa, que você dê o seu melhor e só por isso eu já vou ter um orgulho imenso de você!
+
+Que o Espírito Santo te ilumine, que Jesus e Nossa Senhora te livrem de todo pensamento que não provém deles e que você fique bem, amor.
+
+Quero te desejar um ótimo dia. Saiba que vou estar te esperando pra você conversar sobre o que quiser depois. Conte comigo amor, sempre.
+
+Eu te amo daqui até a lua! 💜`
+      },
+      {
+        id:'p108', author:'garotinha',
+        title:'Feliz 10 meses de muita alegria! 😝',
+        date:'Novembro 2025',
+        body:`Obrigada por sempre estar do meu lado, por me divertir, cuidar de mim e ser uma pessoa incrível!
+
+Que Deus abençoe você e a nossa relação. Eu amo estar do seu lado e das mil risadas que você me faz soltar kkkkkkkk.
+
+Conte comigo sempre e hoje vai ser um dia lindooooo pq é um dia muito bom pra gente.
+
+Eu te amo MUITOOOO amor!
+Feliz dia 💜`
+      },
+    ],
+
+    /* ── Planos ──────────────────────────────────── */
+    plans: [
+      {
+        category:'🌿 Ao ar livre',
+        items:[
+          { id:'pl_01', text:'Fazer um piquenique no parque 🌳' },
+          { id:'pl_02', text:'Assistir ao pôr do sol juntos 🌅' },
+          { id:'pl_03', text:'Acampar sob as estrelas ✨' },
+          { id:'pl_04', text:'Andar de bicicleta por uma trilha 🚴' },
+          { id:'pl_05', text:'Explorar uma cachoeira ou lagoa 🏞️' },
+          { id:'pl_06', text:'Andar de pedalinho em um lago 🚣' },
+          { id:'pl_07', text:'Fazer um passeio de barco ao entardecer ⛵' },
+          { id:'pl_08', text:'Visitar um jardim botânico e tirar fotos 📷' },
+          { id:'pl_09', text:'Observar as estrelas juntos 🔭' },
+          { id:'pl_10', text:'Participar de um festival ao ar livre 🎡' },
+          { id:'pl_11', text:'Plantar uma árvore juntos 🌳' },
+          { id:'pl_12', text:'Fazer aula de yoga para casais 🧘' },
+        ]
+      },
+      {
+        category:'🍽️ Gastronômicos',
+        items:[
+          { id:'pl_20', text:'Cozinhar um jantar romântico juntos 🍝' },
+          { id:'pl_21', text:'Experimentar uma culinária diferente 🍣' },
+          { id:'pl_22', text:'Montar uma noite de fondue 🧀🍫' },
+          { id:'pl_23', text:'Descobrir uma cafeteria charmosa ☕' },
+          { id:'pl_24', text:'Ter um jantar à luz de velas em casa 🕯️🍷' },
+          { id:'pl_25', text:'Participar de uma aula de culinária juntos 🍳' },
+          { id:'pl_26', text:'Fazer sorvete ou pão caseiro 🍦🍞' },
+        ]
+      },
+      {
+        category:'🎮 Jogos e brincadeiras',
+        items:[
+          { id:'pl_30', text:'Zerar jogos de tabuleiro ou cartas 🎲' },
+          { id:'pl_31', text:'Fazer uma maratona de filmes 🎬' },
+          { id:'pl_32', text:'Brincar de "quem me conhece mais?" 🙋' },
+          { id:'pl_33', text:'Montar um quebra-cabeça gigante 🧩' },
+          { id:'pl_34', text:'Fazer noite de karaokê em casa 🎤' },
+          { id:'pl_35', text:'Participar de uma Escape Room 🗝️' },
+          { id:'pl_36', text:'Montar forte de cobertores e assistir filme 🏰' },
+        ]
+      },
+      {
+        category:'✈️ Viagens e passeios',
+        items:[
+          { id:'pl_40', text:'Fazer uma viagem de final de semana 🚗' },
+          { id:'pl_41', text:'Ir à praia e ver o pôr do sol de mãos dadas 🏖️' },
+          { id:'pl_42', text:'Planejar uma viagem internacional juntos 🗺️' },
+          { id:'pl_43', text:'Visitar Paris e ver a Torre Eiffel 🗼' },
+          { id:'pl_44', text:'Fazer um passeio de balão de ar quente 🎈' },
+          { id:'pl_45', text:'Ir a um parque de diversões 🎢' },
+          { id:'pl_46', text:'Passear pelos canais de Veneza 🚤🎭' },
+          { id:'pl_47', text:'Visitar o Templo Senso-ji em Tóquio 🏯🍜' },
+        ]
+      },
+      {
+        category:'🎨 Criativos',
+        items:[
+          { id:'pl_60', text:'Pintar quadros ou fazer arte juntos 🎨' },
+          { id:'pl_61', text:'Montar um álbum de fotos 📖' },
+          { id:'pl_62', text:'Escrever cartas de amor um para o outro 💌' },
+          { id:'pl_63', text:'Fazer ensaio fotográfico de casal 📸' },
+          { id:'pl_64', text:'Fazer uma cápsula do tempo ⏳' },
+          { id:'pl_65', text:'Montar scrapbook com lembranças e tickets ✂️' },
+          { id:'pl_66', text:'Escrever uma música ou poema juntos 🎶✍️' },
+        ]
+      },
+      {
+        category:'💭 Planos e promessas',
+        items:[
+          { id:'pl_70', text:'Criar lista de "100 coisas para fazermos juntos" ✅' },
+          { id:'pl_71', text:'Sempre comemorar o dia em que nos conhecemos 🎉' },
+          { id:'pl_72', text:'Planejar morar juntos um dia 🏡' },
+          { id:'pl_73', text:'Adotar um pet quando estivermos prontos 🐶🐱' },
+          { id:'pl_74', text:'Comprar câmera polaroid para registrar momentos 📷' },
+          { id:'pl_75', text:'Ter uma noite mensal "sem celular" só para nós 📵🌙' },
+        ]
+      },
+    ],
+
+    /* ── Fotos (adicione aqui!) ───────────────────── */
+    photos: [
+      /*
+      {
+        id: 'foto_01',
+        src: 'assets/images/foto_01.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+      */
+           {
+        id: 'foto_01',
+        src: 'imagens Amor/img1.webp',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_02',
+        src: 'imagens Amor/img2.webp',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_03',
+        src: 'imagens Amor/img3.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_04',
+        src: 'imagens Amor/img4.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_05',
+        src: 'imagens Amor/img5.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_06',
+        src: 'imagens Amor/img6.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_07',
+        src: 'imagens Amor/img7.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_08',
+        src: 'imagens Amor/img8.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_09',
+        src: 'imagens Amor/img9.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_10',
+        src: 'imagens Amor/img10.webp',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_11',
+        src: 'imagens Amor/img11.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_12',
+        src: 'imagens Amor/img12.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_13',
+        src: 'imagens Amor/img13.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_14',
+        src: 'imagens Amor/img14.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_15',
+        src: 'imagens Amor/img15.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_16',
+        src: 'imagens Amor/img16.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_17',
+        src: 'imagens Amor/img17.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_18',
+        src: 'imagens Amor/img18.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_19',
+        src: 'imagens Amor/img19.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_20',
+        src: 'imagens Amor/img20.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_21',
+        src: 'imagens Amor/img21.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_22',
+        src: 'imagens Amor/img22.webp',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_23',
+        src: 'imagens Amor/img23.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_24',
+        src: 'imagens Amor/img24.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_25',
+        src: 'imagens Amor/img25.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_26',
+        src: 'imagens Amor/img26.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_27',
+        src: 'imagens Amor/img27.png',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_28',
+        src: 'imagens Amor/img28.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_29',
+        src: 'imagens Amor/img29.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_30',
+        src: 'imagens Amor/img30.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_31',
+        src: 'imagens Amor/img31.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_32',
+        src: 'imagens Amor/img32.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_33',
+        src: 'imagens Amor/img33.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_34',
+        src: 'imagens Amor/img34.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_35',
+        src: 'imagens Amor/img35.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_36',
+        src: 'imagens Amor/img36.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_37',
+        src: 'imagens Amor/img37.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+
+                 {
+        id: 'foto_38',
+        src: 'imagens Amor/img38.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+      
+                 {
+        id: 'foto_39',
+        src: 'imagens Amor/img39.jpg',
+        caption: 'Nossa primeira foto juntos 💙',
+        category: 'primeiros momentos',
+      },
+    ],
+  };
+
+  /* ═══════════════════════════════════════════════════
+     APP — Toda a lógica do site
+     ═══════════════════════════════════════════════ */
+
+  const appState = {
+    currentPage: 'home',
+    music: { index: -1, playing: false },
+    plans: {},
+  };
+
+  /* ── Welcome modal ──────────────────────────────── */
+  function closeWelcome() {
+    const modal = document.getElementById('welcomeModal');
+    modal.classList.add('closing');
+    setTimeout(() => modal.remove(), 600);
+  }
+
+  /* ── Router ─────────────────────────────────────── */
+  function navigateTo(page) {
+    if (page === appState.currentPage && page !== 'home') return;
+    document.querySelector('.page.active')?.classList.remove('active');
+    document.querySelectorAll('.nav-link.active, .bn-item.active').forEach(el => el.classList.remove('active'));
+
+    const pageEl = document.getElementById('page-' + page);
+    if (!pageEl) return;
+    pageEl.classList.add('active');
+    appState.currentPage = page;
+
+    document.querySelectorAll('[data-page="' + page + '"]').forEach(el => el.classList.add('active'));
+    document.getElementById('nav').classList.toggle('hero-mode', page === 'home');
+    window.scrollTo(0, 0);
+    document.getElementById('mobileMenu').classList.remove('open');
+
+    if (page === 'fotos')    initFotos();
+    if (page === 'musicas')  initMusicas();
+    if (page === 'poemas')   initPoemas();
+    if (page === 'datas')    initDatas();
+    if (page === 'planos')   initPlanos();
+    if (page === 'surpresa') initSurpresa();
+
+    history.pushState(null, '', '#' + page);
+  }
+
+  function initRouter() {
+    document.querySelectorAll('[data-page]').forEach(el => {
+      el.addEventListener('click', e => { e.preventDefault(); navigateTo(el.dataset.page); });
+    });
+    document.querySelectorAll('[data-goto]').forEach(el => {
+      el.addEventListener('click', () => navigateTo(el.dataset.goto));
+    });
+    window.addEventListener('popstate', () => {
+      navigateTo(location.hash.replace('#', '') || 'home');
+    });
+  }
+
+  document.getElementById('navMenuBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  /* ── Counter (Anos + Meses + Dias + H + M + S) ── */
+  function startCounter() {
+    function update() {
+      const now = new Date();
+      const start = D.startDate;
+
+      let anos  = now.getFullYear() - start.getFullYear();
+      let meses = now.getMonth()    - start.getMonth();
+      let dias  = now.getDate()     - start.getDate();
+      let horas = now.getHours()    - start.getHours();
+      let mins  = now.getMinutes()  - start.getMinutes();
+      let segs  = now.getSeconds()  - start.getSeconds();
+
+      if (segs < 0) { segs += 60; mins--; }
+      if (mins < 0) { mins += 60; horas--; }
+      if (horas < 0) { horas += 24; dias--; }
+      if (dias < 0) {
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        dias += prevMonth.getDate();
+        meses--;
+      }
+      if (meses < 0) { meses += 12; anos--; }
+
+      document.getElementById('cAnos').textContent    = anos;
+      document.getElementById('cMeses').textContent   = meses;
+      document.getElementById('cDias').textContent    = dias;
+      document.getElementById('cHoras').textContent   = String(horas).padStart(2,'0');
+      document.getElementById('cMinutos').textContent = String(mins).padStart(2,'0');
+      document.getElementById('cSegundos').textContent= String(segs).padStart(2,'0');
+    }
+    update();
+    setInterval(update, 1000);
+  }
+
+  /* ── Phrases ────────────────────────────────────── */
+  function startPhrases() {
+    const el = document.getElementById('heroPhrase');
+    let i = 0;
+    function show() {
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = '"' + D.phrases[i % D.phrases.length] + '"';
+        el.style.transition = 'opacity .8s ease';
+        el.style.opacity = 1;
+        i++;
+      }, 400);
+    }
+    show();
+    setInterval(show, 5000);
+  }
+
+  /* ── Floating hearts ───────────────────────────── */
+  function startHearts() {
+    const container = document.getElementById('heroHearts');
+    const emojis = ['💙','💜','🤍','✨','💫','🌸','💖'];
+    function spawn() {
+      const h = document.createElement('span');
+      h.className = 'heart-particle';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.bottom = '-20px';
+      h.style.fontSize = (.6 + Math.random() * .9) + 'rem';
+      const dur = 7 + Math.random() * 7;
+      h.style.animationDuration = dur + 's';
+      h.style.animationDelay = Math.random() * 2 + 's';
+      container.appendChild(h);
+      setTimeout(() => h.remove(), (dur + 3) * 1000);
+    }
+    setInterval(spawn, 1400);
+  }
+
+  /* ── Video ──────────────────────────────────────── */
+  function initVideo() {
+    const video = document.getElementById('heroVideo');
+    const bgStatic = document.getElementById('heroBgStatic');
+    if (!video) return;
+    const videoFiles = [
+      'videos Amor/vid1.mp4','videos Amor/vid2.mp4','videos Amor/vid3.mp4',
+      'videos Amor/vid4.mp4','videos Amor/vid5.mp4','videos Amor/vid6.mp4',
+      'videos Amor/vid7.mp4', 'videos Amor/vid10.mp4', 'videos Amor/vid11.mp4',
+      'videos Amor/vid12.mp4', 'videos Amor/vid13.mp4', 'videos Amor/vid14.mp4',
+      'videos Amor/vid15.mp4','videos Amor/vid16.mp4','videos Amor/vid17.mp4'
+    ];
+    let lastIdx = -1;
+    function pickVideo() {
+      let idx;
+      do { idx = Math.floor(Math.random() * videoFiles.length); } while (idx === lastIdx);
+      lastIdx = idx;
+      return videoFiles[idx];
+    }
+    video.src = pickVideo();
+    video.addEventListener('ended', () => {
+      video.style.opacity = 0;
+      setTimeout(() => {
+        video.src = pickVideo();
+        video.load();
+        video.play().catch(() => {});
+        video.style.transition = 'opacity 1s';
+        video.style.opacity = '.55';
+      }, 800);
+    });
+    video.addEventListener('error', () => {
+      video.style.display = 'none';
+      bgStatic.style.display = 'block';
+    });
+  }
+
+  function initHome() {
+    startCounter();
+    startPhrases();
+    startHearts();
+    initVideo();
+    document.getElementById('nav').classList.add('hero-mode');
+  }
+
+  /* ── FOTOS ──────────────────────────────────────── */
+  let fotosInited = false, currentFotos = [], lbIndex = 0;
+
+  function initFotos() {
+    if (fotosInited) return; fotosInited = true;
+    const grid = document.getElementById('galleryGrid');
+    const filterBar = document.getElementById('galleryFilters');
+    if (!D.photos || D.photos.length === 0) return;
+
+    const cats = ['all', ...new Set(D.photos.map(p => p.category).filter(Boolean))];
+    filterBar.innerHTML = '';
+    cats.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+      btn.textContent = cat === 'all' ? 'Todos' : cat;
+      btn.dataset.filter = cat;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGallery(cat === 'all' ? D.photos : D.photos.filter(p => p.category === cat));
+      });
+      filterBar.appendChild(btn);
+    });
+    renderGallery(D.photos);
+    initLightbox();
+  }
+
+  function renderGallery(photos) {
+    const grid = document.getElementById('galleryGrid');
+    currentFotos = photos;
+    grid.innerHTML = photos.map((p, i) => `
+      <div class="photo-card" data-index="${i}">
+        <img class="photo-img" src="${p.src}" alt="${p.caption || ''}" loading="lazy" />
+        ${p.caption ? `<p class="photo-caption">${p.caption}</p>` : ''}
+      </div>`).join('');
+    grid.querySelectorAll('.photo-card').forEach(card => {
+      card.addEventListener('click', () => { lbIndex = +card.dataset.index; openLightbox(lbIndex); });
+    });
+  }
+
+  function initLightbox() {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => { lbIndex = (lbIndex - 1 + currentFotos.length) % currentFotos.length; openLightbox(lbIndex); });
+    document.getElementById('lbNext').addEventListener('click', () => { lbIndex = (lbIndex + 1) % currentFotos.length; openLightbox(lbIndex); });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lb.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft')  { lbIndex = (lbIndex - 1 + currentFotos.length) % currentFotos.length; openLightbox(lbIndex); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % currentFotos.length; openLightbox(lbIndex); }
+    });
+  }
+
+  function openLightbox(i) {
+    const p = currentFotos[i];
+    document.getElementById('lbImg').src = p.src;
+    document.getElementById('lbCaption').textContent = p.caption || '';
+    document.getElementById('lightbox').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  /* ── MUSIC PLAYER ───────────────────────────────── */
+  let musicasInited = false;
+  const audioEl = document.getElementById('audioPlayer');
+  let filteredMusic = [];
+
+  function initMusicas() {
+    if (musicasInited) return; musicasInited = true;
+    filteredMusic = [...D.music];
+    renderPlaylist(filteredMusic);
+
+    document.getElementById('playlistSearch').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      filteredMusic = D.music.filter(m =>
+        m.title.toLowerCase().includes(q) || m.artist.toLowerCase().includes(q)
+      );
+      renderPlaylist(filteredMusic);
+    });
+
+    audioEl.addEventListener('timeupdate', updateProgress);
+    audioEl.addEventListener('ended', () => playIndex(appState.music.index + 1));
+    audioEl.addEventListener('loadedmetadata', () => {
+      document.getElementById('npTotal').textContent = fmtTime(audioEl.duration);
+    });
+    document.getElementById('npRange').addEventListener('input', e => {
+      if (audioEl.duration) audioEl.currentTime = (e.target.value / 100) * audioEl.duration;
+    });
+    document.getElementById('npPlay').addEventListener('click', togglePlay);
+    document.getElementById('npPrev').addEventListener('click', () => playIndex(appState.music.index - 1));
+    document.getElementById('npNext').addEventListener('click', () => playIndex(appState.music.index + 1));
+  }
+
+  function renderPlaylist(list) {
+    const ul = document.getElementById('playlistList');
+    ul.innerHTML = list.map((m, i) => {
+      const ri = D.music.indexOf(m);
+      return `<li class="pl-item ${ri === appState.music.index ? 'active' : ''}" data-real-index="${ri}">
+        <span class="pl-num">${i + 1}</span>
+        <span class="pl-playing-icon">♪</span>
+        <div class="pl-info">
+          <div class="pl-name">${m.title}</div>
+          <div class="pl-artist">${m.artist}</div>
+        </div></li>`;
+    }).join('');
+    ul.querySelectorAll('.pl-item').forEach(li => {
+      li.addEventListener('click', () => playIndex(+li.dataset.realIndex));
+    });
+  }
+
+  function playIndex(idx) {
+    const n = ((idx % D.music.length) + D.music.length) % D.music.length;
+    const m = D.music[n];
+    appState.music.index = n;
+    document.getElementById('npSong').textContent   = m.title;
+    document.getElementById('npArtist').textContent = m.artist;
+    const artEl = document.getElementById('npArt');
+    artEl.innerHTML = m.cover ? `<img src="${m.cover}" alt="${m.title}" />` : '<div class="np-art-placeholder">♪</div>';
+    audioEl.src = 'assets/music/' + m.file;
+    audioEl.play().then(() => {
+      appState.music.playing = true;
+      updatePlayBtn();
+      renderPlaylist(filteredMusic);
+    }).catch(() => {
+      renderPlaylist(filteredMusic);
+    });
+  }
+
+  function togglePlay() {
+    if (appState.music.index < 0) { playIndex(0); return; }
+    if (appState.music.playing) {
+      audioEl.pause();
+      appState.music.playing = false;
+    } else {
+      audioEl.play().then(() => { appState.music.playing = true; updatePlayBtn(); }).catch(() => {});
+    }
+    updatePlayBtn();
+  }
+
+  function updatePlayBtn() {
+    document.getElementById('npPlay').textContent = appState.music.playing ? '⏸' : '▶';
+  }
+
+  function updateProgress() {
+    if (!audioEl.duration) return;
+    const pct = (audioEl.currentTime / audioEl.duration) * 100;
+    document.getElementById('npFill').style.width = pct + '%';
+    document.getElementById('npRange').value = pct;
+    document.getElementById('npCurrent').textContent = fmtTime(audioEl.currentTime);
+  }
+
+  function fmtTime(s) {
+    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  /* ── POEMS ──────────────────────────────────────── */
+  let poemasInited = false;
+
+  function initPoemas() {
+    if (poemasInited) return; poemasInited = true;
+    renderPoems(D.poems);
+    document.querySelectorAll('.poem-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.poem-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const author = btn.dataset.author;
+        const q = document.getElementById('poemsSearch').value.toLowerCase();
+        applyPoemFilter(author, q);
+      });
+    });
+    document.getElementById('poemsSearch').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      const author = document.querySelector('.poem-filter.active').dataset.author;
+      applyPoemFilter(author, q);
+    });
+    document.getElementById('pmClose').addEventListener('click', closePoemModal);
+    document.getElementById('pmOverlay').addEventListener('click', closePoemModal);
+  }
+
+  function applyPoemFilter(author, q) {
+    let list = D.poems;
+    if (author !== 'all') list = list.filter(p => p.author === author);
+    if (q) list = list.filter(p => p.title.toLowerCase().includes(q) || p.body.toLowerCase().includes(q));
+    renderPoems(list);
+  }
+
+  function renderPoems(list) {
+    const grid = document.getElementById('poemsGrid');
+    if (!list.length) {
+      grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:60px">Nenhum poema encontrado 💌</p>';
+      return;
+    }
+    grid.innerHTML = list.map(p => {
+      const preview = p.body.replace(/\n/g,' ').substring(0, 130) + '...';
+      return `<article class="poem-card" data-id="${p.id}" data-author="${p.author}">
+        <span class="pc-author-tag ${p.author}">${p.author === 'boneco' ? '💙 Boneco de Neve' : '💜 Minha Garotinha'}</span>
+        <h3 class="pc-title">${p.title}</h3>
+        ${p.date ? `<div class="pc-date">${p.date}</div>` : ''}
+        <p class="pc-preview">${preview}</p>
+        <div class="pc-read-more">Ler completo →</div>
+      </article>`;
+    }).join('');
+    grid.querySelectorAll('.poem-card').forEach(card => {
+      card.addEventListener('click', () => openPoemModal(card.dataset.id));
+    });
+  }
+
+  function openPoemModal(id) {
+    const p = D.poems.find(x => x.id === id);
+    if (!p) return;
+    const tag = document.getElementById('pmAuthorTag');
+    tag.className = 'pm-author-tag ' + p.author;
+    tag.textContent = p.author === 'boneco' ? '💙 Boneco de Neve' : '💜 Minha Garotinha';
+    document.getElementById('pmTitle').textContent = p.title;
+    document.getElementById('pmDate').textContent  = p.date || '';
+    document.getElementById('pmBody').textContent  = p.body;
+    document.getElementById('poemModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePoemModal() {
+    document.getElementById('poemModal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  /* ── TIMELINE ───────────────────────────────────── */
+  let datasInited = false;
+
+  function initDatas() {
+    if (datasInited) return; datasInited = true;
+    const sorted = [...D.dates].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const tl = document.getElementById('timeline');
+    tl.innerHTML = sorted.map((d, i) => {
+      const dateObj = new Date(d.date + 'T12:00:00');
+      const dateStr = dateObj.toLocaleDateString('pt-BR', { day:'numeric', month:'long', year:'numeric' });
+      return `<div class="tl-item" style="animation-delay:${i * .07}s">
+        <div class="tl-content">
+          <div class="tl-date">${dateStr}</div>
+          <span class="tl-emoji">${d.emoji}</span>
+          <div class="tl-title">${d.title}</div>
+          ${d.desc ? `<div class="tl-desc">${d.desc}</div>` : ''}
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot ${d.special ? 'special' : ''}"></div></div>
+        <div class="tl-empty"></div>
+      </div>`;
+    }).join('');
+  }
+
+  /* ── PLANS ──────────────────────────────────────── */
+  let planosInited = false;
+
+  function initPlanos() {
+    if (planosInited) return; planosInited = true;
+    try {
+      const saved = localStorage.getItem('nosso-amor-planos-v2');
+      if (saved) appState.plans = JSON.parse(saved);
+    } catch(e) {}
+    renderPlans();
+  }
+
+  function renderPlans() {
+    const grid = document.getElementById('plansGrid');
+    grid.innerHTML = D.plans.map(cat => `
+      <div class="plan-category">
+        <div class="plan-cat-header">${cat.category}</div>
+        <ul class="plan-items">
+          ${cat.items.map(item => `
+            <li class="plan-item ${appState.plans[item.id] ? 'done' : ''}" data-id="${item.id}">
+              <div class="plan-check">${appState.plans[item.id] ? '✓' : ''}</div>
+              <span class="plan-text">${item.text}</span>
+            </li>`).join('')}
+        </ul>
+      </div>`).join('');
+    grid.querySelectorAll('.plan-item').forEach(li => {
+      li.addEventListener('click', () => {
+        const id = li.dataset.id;
+        appState.plans[id] = !appState.plans[id];
+        li.classList.toggle('done', appState.plans[id]);
+        li.querySelector('.plan-check').textContent = appState.plans[id] ? '✓' : '';
+        try { localStorage.setItem('nosso-amor-planos-v2', JSON.stringify(appState.plans)); } catch(e) {}
+        updatePlanStats();
+      });
+    });
+    updatePlanStats();
+  }
+
+  function updatePlanStats() {
+    const all = D.plans.flatMap(c => c.items);
+    const total = all.length;
+    const done  = all.filter(i => appState.plans[i.id]).length;
+    const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+    document.getElementById('psTotal').textContent = total;
+    document.getElementById('psDone').textContent  = done;
+    document.getElementById('psPct').textContent   = pct + '%';
+  }
+
+  /* ── SURPRESA ───────────────────────────────────── */
+  let surpresaInited = false;
+
+  function initSurpresa() {
+    if (surpresaInited) return; surpresaInited = true;
+    const petals = document.getElementById('surprisePetals');
+    const emojis = ['🌸','💜','🌷','💙','✨','🌺','💫','🎀'];
+    function spawnPetal() {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.fontSize = (.7 + Math.random()) + 'rem';
+      const dur = 8 + Math.random() * 8;
+      p.style.animationDuration = dur + 's';
+      p.style.animationDelay = Math.random() * 3 + 's';
+      petals.appendChild(p);
+      setTimeout(() => p.remove(), (dur + 4) * 1000);
+    }
+    setInterval(spawnPetal, 600);
+    for (let i = 0; i < 8; i++) spawnPetal();
+
+    document.getElementById('btnSim').addEventListener('click', () => {
+      document.getElementById('surpriseQuestion').classList.add('hidden');
+      setTimeout(() => document.getElementById('surpriseAnswer').classList.remove('hidden'), 200);
+    });
+
+    const frasesNao = [
+      'Erro 404: "Não" não encontrado! 😂',
+      'Você clicou errado, minha linda! Tenta de novo 💖',
+      'HAHA! Agora aperta no botão certo, vai 😘',
+      'Ops… seu dedo escorregou, né? 😏',
+      'O botão "Não" está com defeito hoje! 😉',
+      'Tenta de novo, porque você me ama 🥺💙',
+      'Sistema detectou gracinha. Ativando modo beijo 💋',
+      'Você não tem permissão para essa ação. Favor amar seu boneco de neve 😜',
+      'Se clicar "Sim" você ganha um beijinho! 💌',
+      'Você já é minha namorada no meu coração 💜',
+    ];
+    let naoCount = 0;
+    const btnNao = document.getElementById('btnNao');
+    btnNao.addEventListener('click', () => {
+      btnNao.textContent = frasesNao[naoCount % frasesNao.length];
+      naoCount++;
+      if (window.innerWidth > 600) {
+        btnNao.style.position = 'relative';
+        btnNao.style.left = (Math.random() * 120 - 60) + 'px';
+        btnNao.style.top  = (Math.random() * 60  - 30) + 'px';
+        btnNao.style.transition = 'left .3s, top .3s';
+      }
+    });
+  }
+
+  /* ── BOOT ───────────────────────────────────────── */
+  document.addEventListener('DOMContentLoaded', () => {
+    initHome();
+    initRouter();
+    const initPage = location.hash.replace('#', '') || 'home';
+    navigateTo(initPage);
+  });
+  </script>
+</body>
+</html>
